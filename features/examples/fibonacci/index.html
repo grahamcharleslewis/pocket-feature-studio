@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Fibonacci Generator</title>
+  <meta name="description" content="Enter a limit and generate every Fibonacci number up to it.">
+  <meta name="feature-icon" content="🐚">
+  <meta name="feature-tags" content="forms, example">
+  <link rel="manifest" href="../../../manifest.webmanifest">
+  <link rel="icon" href="../../../icons/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../../css/app.css">
+  <link rel="stylesheet" href="fibonacci.css">
+  <script type="module" src="../../../js/feature.js"></script>
+  <script type="module" src="fibonacci.js"></script>
+</head>
+<body>
+  <header class="app-bar">
+    <a class="icon-btn" href="../../../" aria-label="Back to all features">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+    </a>
+    <h1 class="app-bar__title">Fibonacci Generator</h1>
+  </header>
+
+  <main class="container stack">
+    <form class="card stack" id="fib-form" novalidate>
+      <div>
+        <label class="fib-label" for="max">Generate up to</label>
+        <input class="input" id="max" name="max" type="text" inputmode="numeric" autocomplete="off"
+               placeholder="e.g. 1000" aria-describedby="max-help max-error" required>
+        <p class="fib-help" id="max-help">A whole number, 0 or more. Large values are fine, up to 200 digits.</p>
+        <p class="fib-error" id="max-error" role="alert" hidden></p>
+      </div>
+      <button class="btn btn--primary btn--block" type="submit">Generate</button>
+    </form>
+
+    <section id="results" hidden aria-live="polite">
+      <h2 class="section-title" id="results-title"></h2>
+      <div class="fib-stats" id="stats"></div>
+      <ol class="fib-list" id="series"></ol>
+    </section>
+  </main>
+</body>
+</html>

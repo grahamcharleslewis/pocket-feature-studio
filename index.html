@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Pocket Feature Studio</title>
+  <meta name="description" content="A gallery of small demos, each showing off one capability of a mobile web app.">
+
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#5b4cdb" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#1a1a2b" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Feature Studio">
+
+  <link rel="stylesheet" href="css/app.css">
+  <script type="module" src="js/app.js"></script>
+</head>
+<body>
+  <header class="app-bar">
+    <h1 class="app-bar__title">Pocket Feature Studio</h1>
+    <button class="btn btn--primary" id="install-btn" type="button" hidden>Install</button>
+  </header>
+
+  <main class="container">
+    <p class="banner" id="offline-banner" hidden>You're offline — showing features cached on this device.</p>
+
+    <section aria-labelledby="features-heading">
+      <h2 class="section-title" id="features-heading">Features <span id="feature-count"></span></h2>
+
+      <label class="visually-hidden" for="search">Search features</label>
+      <input class="search" id="search" type="search" placeholder="Search features" autocomplete="off" hidden>
+
+      <div id="feature-list" aria-live="polite" style="margin-top: var(--space-3)">
+        <ul class="grid">
+          <li class="skeleton"></li>
+          <li class="skeleton"></li>
+          <li class="skeleton"></li>
+        </ul>
+      </div>
+
+      <div class="empty-state" id="empty-state" hidden>
+        <div class="empty-state__icon" aria-hidden="true">🧩</div>
+        <h2>No features yet</h2>
+        <p>Add a folder with an <code>index.html</code> to <code>features/</code> and it will show up here.</p>
+        <p id="empty-hint" hidden></p>
+      </div>
+
+      <p class="empty-state" id="no-results" hidden>No features match your search.</p>
+    </section>
+  </main>
+
+  <div class="toast" id="update-toast" role="status" hidden>
+    <span>A new version is available.</span>
+    <button class="btn" id="update-btn" type="button">Reload</button>
+  </div>
+</body>
+</html>
